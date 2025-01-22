@@ -89,7 +89,7 @@ pub mod spl_staking {
 
         // Calculate rewards based on staking duration
         let staking_duration = clock.unix_timestamp - user.start_time;
-        let rewards = calculate_rewards(user.amount_staked, state.apy, staking_duration);
+        let rewards = calculate_rewards(user.amount_staked, user.apy, staking_duration);
 
         require!(rewards > user.reward_claimed, CustomError::NoRewardsAvailable);
 
